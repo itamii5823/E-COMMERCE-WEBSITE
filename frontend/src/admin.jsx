@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Nav from "./components/nav";
 
 function Admin() {
   const [product, setproduct] = useState({
@@ -56,9 +55,7 @@ function Admin() {
   return (
     <div className="min-h-screen bg-[#0A0F1C] text-white overflow-x-hidden">
       {/* NAV */}
-      <div className="sticky top-0 z-50 border-b border-white/10 bg-[#0A0F1C]/80 backdrop-blur-xl">
-        <Nav />
-      </div>
+      
 
       <div className="px-3 sm:px-5 lg:px-8 py-6 sm:py-8">
         <div className="mx-auto max-w-[1500px]">
