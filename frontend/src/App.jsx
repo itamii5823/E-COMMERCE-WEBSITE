@@ -3,145 +3,161 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 
-
-
 function App() {
+
+
    const[userinfo,setuserinfo]=useState({username:"",password:"",email:""})
    const [newuser,setnewuser]=useState({username:"",password:"",email:""})
    const [theme,settheme]=useState(true)
+   const [errorMsg, setErrorMsg] = useState("");
    const[err,seterr]=useState("");
    const navigate = useNavigate()
+
    function signvalue(e){
      const {name,value}=e.target;
      setnewuser({...newuser,[name]:value})
-     console.log(newuser);
    }
-   
 
    function change(e){
-   const {name,value} =e.target;
-   setuserinfo({...userinfo,[name]:value})
-    console.log(userinfo);
-  
+     const {name,value} =e.target;
+     setuserinfo({...userinfo,[name]:value})
    }
 
    async function signup(e) {
     e.preventDefault();
     const res = await axios.post("http://localhost:5000/signup",newuser,{withCredentials:true})
-    console.log(res.data);
     if(res.data==="received"){  
        navigate("/prod");
-    }
-    else{
-      alert("user already exist")
+    } else {
+      setErrorMsg("User already exist")
     }
    }
-
-
-
 
    async function submit (e){
     e.preventDefault();
-    
-      console.log('Attempting login...', userinfo);
-      const res = await axios.post("http://localhost:5000/login", userinfo, { withCredentials: true });
-      console.log('Login response:', res.data);
-      if (res.data === "done") {
-       console.log('Login successful, navigating to /prod');
+    const res = await axios.post("http://localhost:5000/login", userinfo, { withCredentials: true });
+    if (res.data === "done") {
         navigate("/prod");
-       console.log('Navigation called');
-      
-      }
-      else{
-        alert("user doesnt exist")
-      }
-    
-   }
-    function changer(){
-      if(theme){
-        settheme(false);
-      }
-      else{
-       settheme(true)
-      }
+    } else {
+      setErrorMsg("User does not exist ")
     }
-   
- 
-  if (theme) {return (   
+   }
+
+   function changer(){
+      settheme(!theme)
+   }
+
+  return (
+    <div className="min-h-screen flex items-center justify-center 
     
-         <>
-          {err && (
-    <div className='fixed top-5 left-1/2 -translate-x-1/2 bg-red-500 text-white py-2 px-4 rounded-xl z-50'>
-      {err}
+    bg-gradient-to-br from-[#020617] via-[#0f172a] to-[#020617] relative overflow-hidden">
+
+      {/* 🔴 glow background */}
+      <div className="absolute w-96 h-96 bg-[#e23744]/30 blur-[120px] top-10 left-10"></div>
+      <div className="absolute w-96 h-96 bg-pink-500/20 blur-[120px] bottom-10 right-10"></div>
+
+      {/* CARD */}
+      <div className="relative z-10 w-[90%] max-w-md 
+      bg-white/10 backdrop-blur-2xl border border-white/20 
+      rounded-3xl p-8 shadow-2xl">
+
+        {/* HEADER */}
+        <div className="text-center mb-6">
+          <h1 className="text-3xl font-bold text-white">DrinkStore</h1>
+          <p className="text-gray-400 text-sm mt-1">
+            {theme ? "Welcome back" : "Create your account"}
+          </p>
+        </div>
+        {errorMsg && (
+       <div className="mb-4 flex items-start gap-3 rounded-xl border border-red-500/30 
+       bg-red-500/10 px-4 py-3 text-red-300 shadow-[0_0_20px_rgba(220,38,38,0.2)]">
+
+        <span className="text-xl"></span>
+
+         <div>
+      <p className="font-semibold">Error</p>
+      <p className="text-sm opacity-80">{errorMsg}</p>
     </div>
-  )}
-       <div className="w-full min-h-screen flex justify-center items-center backdrop-blur-md bg-cover relative" 
-            style={{
-              backgroundImage: "url('/spiderman.jpg')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              backgroundAttachment: 'fixed'
-            }}>
-           
 
+  </div>
+)}
 
+        {/* SWITCH */}
+        <div className="flex justify-center mb-6">
+          <button 
+            onClick={changer}
+            className="text-sm text-red-400 hover:text-red-300 transition">
+            {theme ? "New here? Sign up" : "Already have account? Login"}
+          </button>
+        </div>
 
-             <button className='absolute top-10 left-7 py-2 px-4 bg-[#363636] text-white outline-none  mt-5 rounded-xl  ' onClick={changer}>dark theme</button>
-          <form onSubmit={submit} className='w-1/3 h-90 bg-transparent flex flex-col items-center justify-center rounded-xl text-shadow-neutral-200 shadow-xl hover:inset-shadow-amber-50'>
+        {/* FORM */}
+        {theme ? (
 
-          <input className=' outline-none bg-white/35 mb-2 rounded-xl py-2 px-4' type='text'id='username' value={userinfo.username} onChange={change} name='username' placeholder='username'/>
-         <input className=' outline-none bg-white/35 mb-2 rounded-xl py-2 px-4' type='text' id='email' value={userinfo.email} onChange={change} name='email' placeholder='email' />
-         <input className=' outline-none bg-white/35 mb-2 rounded-xl py-2 px-4' type='text' id='password' value={userinfo.password} onChange={change} name='password' placeholder='password'/>
-        <button className='outline-none mb-2 bg-black text-orange-600  py-2 px-4 rounded-xl' type='submit'>login</button>
-           </form>
+          <form onSubmit={submit} className="flex flex-col gap-4">
 
-        <form onSubmit={signup} className='w-1/3 ml-12 h-90 bg-transparent flex flex-col items-center justify-center rounded-xl shadow-2xl transition-all
-         duration-300'>
-          <input className='outline-none mb-2 bg-white/35 py-2 px-4 rounded-xl' type='text' id='susername' value={newuser.username} onChange={signvalue} name='username' placeholder='username'/>
-         <input className='outline-none mb-2 bg-white/35 py-2 px-4 rounded-xl'  value={newuser.email} onChange={signvalue} name='email' placeholder='email' />
-         <input className='outline-none mb-2 bg-white/35 py-2 px-4 rounded-xl' type='password' id='spassword' value={newuser.password} onChange={signvalue} name='password' placeholder='password'/>
-        <button className='outline-none mb-2 bg-red-700 py-2 px-4 rounded-xl' type='submit'>signup</button>
-           </form>
+            <input 
+              className="bg-[#020617] text-white border border-gray-600 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#e23744] outline-none transition"
+              name="username" value={userinfo.username} onChange={change}
+              placeholder="Username"
+            />
+
+            <input 
+              className="bg-[#020617] text-white border border-gray-600 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#e23744] outline-none transition"
+              name="email" value={userinfo.email} onChange={change}
+              placeholder="Email"
+            />
+
+            <input 
+              className="bg-[#020617] text-white border border-gray-600 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#e23744] outline-none transition"
+              type="password"
+              name="password" value={userinfo.password} onChange={change}
+              placeholder="Password"
+            />
+
+            <button className="mt-2 bg-[#e23744] hover:bg-[#c92d39] 
+            text-white py-3 rounded-xl font-semibold transition shadow-lg shadow-red-500/20">
+              Login
+            </button>
+
+          </form>
+
+        ) : (
+
+          <form onSubmit={signup} className="flex flex-col gap-4">
+
+            <input 
+              className="bg-[#020617] text-white border border-gray-600 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#e23744]"
+              name="username" value={newuser.username} onChange={signvalue}
+              placeholder="Username"
+            />
+
+            <input 
+              className="bg-[#020617] text-white border border-gray-600 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#e23744]"
+              name="email" value={newuser.email} onChange={signvalue}
+              placeholder="Email"
+            />
+
+            <input 
+              className="bg-[#020617] text-white border border-gray-600 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#e23744]"
+              type="password"
+              name="password" value={newuser.password} onChange={signvalue}
+              placeholder="Password"
+            />
+
+            <button className="mt-2 bg-[#e23744] hover:bg-[#c92d39] 
+            text-white py-3 rounded-xl font-semibold transition shadow-lg shadow-red-500/20">
+              Sign Up
+            </button>
+
+          </form>
+
+        )}
+
+      </div>
 
     </div>
-     
-  </>
-  )}else {
-    return (   
-    <>
-        
-       <div className="bg-gray-800 w-full min-h-screen flex justify-center items-center backdrop-blur-md" 
-            style={{
-              backgroundImage: "url('/batman.jpg')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              backgroundAttachment: 'fixed'
-            }}>
-            <button className='absolute top-10 left-7 py-2 px-4 bg-[#363636] text-white outline-none  mt-5 rounded-xl  ' onClick={changer}>light theme</button>
-
-          <form onSubmit={submit} className='w-1/3 h-90 bg-transparent flex flex-col items-center justify-center rounded-xl shadow-xl'>
-
-          <input class="bg-white/35 mb-2 text-black rounded-xl px-4 py-2 outline-none" value={userinfo.username} onChange={change} name='username' placeholder='username'/>
-         <input class="bg-white/35 mb-2 text-black rounded-xl px-4 py-2 outline-none "  type='text' id='email' value={userinfo.email} onChange={change} name='email' placeholder='email' />
-         <input class="bg-white/35 mb-2 text-black rounded-xl px-4 py-2 outline-none " type='password' id='password' value={userinfo.password} onChange={change} name='password' placeholder='password'/>
-        <button class=' bg-[#363636] py-2 px-4 rounded-xl text-white outline-none' type='submit'>login</button>
-           </form>
-
-        <form onSubmit={signup} className='w-1/3 ml-12 h-90 bg-transparent flex flex-col items-center justify-center rounded-xl shadow-2xl transition-all
-         duration-300 ' >
-          <input class="bg-white/35 mb-2  rounded-xl px-4 py-2 outline-none" type='text' id='susername' value={newuser.username} onChange={signvalue} name='username' placeholder='username'/>
-         <input class="bg-white/35 mb-2  rounded-xl px-4 py-2 outline-none" type='text' id='semail' value={newuser.email} onChange={signvalue} name='email' placeholder='email' />
-         <input class="bg-white/35 mb-2 rounded-xl px-4 py-2 outline-none" type='password' id='spassword' value={newuser.password} onChange={signvalue} name='password' placeholder='password'/>
-        <button class=" bg-[#fad608] text-black rounded-xl px-4 py-2 outline-none" type='submit'>signup</button>
-           </form>
-
-    </div>
-     
-  </>
   )
-  }
 }
 
 export default App;

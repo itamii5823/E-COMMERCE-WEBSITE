@@ -5,13 +5,17 @@ import Protected from "./Protected";
 import Products from "./Product";
 import Cart from "./Cart";
 import Search from "./Search";
+import Andriod from "./Andriod";
+
 
 
 function Mainroutes(){
     return(
        <Routes>
          <Route path="/" element={<App/>}/>
+          <Route path="/sign" element={<Andriod/>}/>
          <Route path="/admin" element={<Admin/>}/>
+
          <Route path="/prod" element={<Products/>}/>
          <Route path="/cart" element={<Cart/>}/>
          <Route path="/search" element={<Search/>}/>
