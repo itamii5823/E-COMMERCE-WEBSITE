@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Nav from "./components/nav";
+import Nav from "./components/Nav";
 
 function Cart() {
   const [product, setproduct] = useState([]);

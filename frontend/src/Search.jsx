@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import Nav from "./components/nav";
+import Nav from "./components/Nav";
 
 function Search() {
   const [search, newsearch] = useState("");
