@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors');
 const User = require("./database/usermodule");
 const prod =require("./database/products")
 const cookieParser = require('cookie-parser');
@@ -10,12 +9,14 @@ const app= express();
 
 const cart = require('./database/cart');
 
-
+const cors = require("cors");
 
 app.use(cors({
-    origin: "https://e-commerce-website-fawn-two.vercel.app/",
-    credentials:true,
+    origin: "https://e-commerce-website-fawn-two.vercel.app",
+    credentials: true
 }));
+
+
 app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static("upload"));
