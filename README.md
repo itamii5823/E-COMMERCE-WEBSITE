@@ -9,8 +9,6 @@ The project includes user authentication, product browsing, cart management, che
 
 🌐 **Backend:** https://e-commerce-website-w1ee.onrender.com/
 
-> The backend may take a few seconds to wake up when using Render's free hosting.
-
 ---
 
 ## Features
