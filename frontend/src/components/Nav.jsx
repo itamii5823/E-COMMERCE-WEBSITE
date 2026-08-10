@@ -13,7 +13,7 @@ function Nav() {
 
   return (
     <div className="px-3 sm:px-5 lg:px-8 py-3">
-      <nav className="w-full max-w-[1500px] mx-auto rounded-[20px] sm:rounded-[24px] border border-white/10 bg-[#10182B]/85 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
+      <nav className="w-full max-w-[1500px] mx-auto rounded-[20px] sm:rounded-[24px] border border-white/10 bg-[#0A0F1C] backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
         <div className="flex flex-col gap-3 px-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-5 sm:py-4">
           {/* Logo */}
           <div className="flex items-center justify-between gap-3">

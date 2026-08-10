@@ -54,14 +54,14 @@ function Products() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0A0F1C] text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#0A0F1C] text-white overflow-x-hidden ">
       {/* NAV */}
       <div className="sticky top-0 z-50 border-b border-white/10 bg-[#0A0F1C]/80 backdrop-blur-xl">
         <Nav />
       </div>
 
       <div className="px-3 sm:px-5 lg:px-8 py-5 sm:py-7">
-        <div className="mx-auto max-w-[1500px]">
+        <div className="mx-auto max-w-375">
           {/* TOP BAR */}
           <div className="mb-5 sm:mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div className="min-w-0">
@@ -73,13 +73,13 @@ function Products() {
               </h1>
             </div>
 
-            <div className="w-fit rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs sm:text-sm text-white/70 backdrop-blur">
+            <div className="w-fit rounded-full border border-white/10 bg-white/4 px-4 py-2 text-xs sm:text-sm text-white/70 backdrop-blur">
               {filteredProducts.length} products
             </div>
           </div>
 
           {/* CATEGORY BAR */}
-          <div className="mb-6 sm:mb-8 rounded-[20px] sm:rounded-[24px] border border-white/10 bg-[#10182B]/80 p-2.5 sm:p-3 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
+          <div className="mb-6 sm:mb-8 rounded-[20px] sm:rounded-3xlrder border-white/10 bg-[#10182B]/80 p-2.5 sm:p-3 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
             <div className="flex gap-2.5 sm:gap-3 overflow-x-auto no-scrollbar">
               {categories.map((cat) => (
                 <button
@@ -89,7 +89,7 @@ function Products() {
                   ${
                     selectedCategory === cat
                       ? "bg-white text-[#0A0F1C] border-white shadow-[0_10px_30px_rgba(255,255,255,0.15)]"
-                      : "bg-white/[0.04] text-white/70 border-white/10 hover:bg-white/[0.08] hover:text-white"
+                      : "bg-white/4 text-white/70 border-white/10 hover:bg-white/8 hover:text-white"
                   }`}
                 >
                   {cat}
@@ -100,7 +100,7 @@ function Products() {
 
           {/* PRODUCTS */}
           {filteredProducts.length === 0 ? (
-            <div className="rounded-[24px] sm:rounded-[28px] border border-white/10 bg-[#10182B] p-8 sm:p-12 text-center">
+            <div className="rounded-3xl sm:rounded-[28px] border border-white/10 bg-[#10182B] p-8 sm:p-12 text-center">
               <h2 className="text-lg sm:text-2xl font-semibold text-white">
                 No products found
               </h2>
@@ -116,15 +116,15 @@ function Products() {
                   className="group overflow-hidden rounded-[20px] sm:rounded-[28px] border border-white/10 bg-[#10182B] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(0,0,0,0.4)]"
                 >
                   {/* IMAGE SECTION */}
-                  <div className="relative overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_top,_rgba(96,165,250,0.10),_transparent_35%),linear-gradient(180deg,#0E1628_0%,#10182B_100%)]">
-                    <div className="pointer-events-none absolute inset-x-0 top-0 h-16 sm:h-24 bg-gradient-to-b from-white/[0.04] to-transparent" />
+                  <div className="relative overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_top,rgba(96,165,250,0.10),transparent_35%),linear-gradient(180deg,#0E1628_0%,#10182B_100%)]">
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-16 sm:h-24 bg-linear-to-b from-white/4 to-transparent" />
 
                     {/* category badge */}
                     <div className="absolute left-2.5 sm:left-4 top-2.5 sm:top-4 z-10 rounded-full border border-white/10 bg-black/20 px-2 sm:px-3 py-1 text-[9px] sm:text-[11px] font-medium capitalize text-white/75 backdrop-blur max-w-[70%] truncate">
                       {items.items}
                     </div>
 
-                    <div className="h-[150px] sm:h-[280px] lg:h-[300px] flex items-center justify-center px-3 sm:px-8 pt-10 sm:pt-14 pb-4 sm:pb-6">
+                    <div className="h-37.5 sm:h-70 lg:h-75 flex items-center justify-center px-3 sm:px-8 pt-10 sm:pt-14 pb-4 sm:pb-6">
                       <img
                         className="max-h-full max-w-full object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.35)] transition-transform duration-500 group-hover:scale-[1.05]"
                         src={"http://localhost:5000" + items.imageurl}
@@ -146,13 +146,13 @@ function Products() {
                         </p>
                       </div>
 
-                      <p className="text-[1rem] sm:text-[1.45rem] font-semibold bg-gradient-to-r from-white via-sky-200 to-violet-300 bg-clip-text text-transparent">
+                      <p className="text-[1rem] sm:text-[1.45rem] font-semibold bg-linear-to-r from-white via-sky-200 to-violet-300 bg-clip-text text-transparent">
                         ₹ {items.rate}
                       </p>
                     </div>
 
                     {/* QUANTITY PANEL */}
-                    <div className="mt-3 sm:mt-4 rounded-[14px] sm:rounded-[22px] border border-white/10 bg-white/[0.04] p-2.5 sm:p-4 backdrop-blur">
+                    <div className="mt-3 sm:mt-4 rounded-[14px] sm:rounded-[22px] border border-white/10 bg-white/4 p-2.5 sm:p-4 backdrop-blur">
                       <div className="space-y-2 sm:space-y-3">
                         <div>
                           <p className="text-[9px] sm:text-xs uppercase tracking-[0.2em] text-white/35">

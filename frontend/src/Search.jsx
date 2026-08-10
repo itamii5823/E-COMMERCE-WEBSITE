@@ -34,7 +34,7 @@ function Search() {
       </div>
 
       <div className="px-3 sm:px-5 lg:px-8 py-6 sm:py-8">
-        <div className="mx-auto max-w-[1400px]">
+        <div className="mx-auto max-w-350">
           {/* TOP SECTION */}
           <div className="mb-6 sm:mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -53,7 +53,7 @@ function Search() {
               className="flex items-center gap-2 sm:gap-3"
               onSubmit={datasend}
             >
-              <div className="flex-1 flex items-center rounded-[18px] sm:rounded-[22px] border border-white/10 bg-white/[0.04] px-3 sm:px-5 py-2.5 sm:py-3.5">
+              <div className="flex-1 flex items-center rounded-[18px] sm:rounded-[22px] border border-white/10 bg-white/4 px-3 sm:px-5 py-2.5 sm:py-3.5">
                 <img
                   className="w-4 h-4 sm:w-5 sm:h-5 object-contain opacity-60 mr-3"
                   src="/search.png"
@@ -78,8 +78,8 @@ function Search() {
           {/* RESULT SECTION */}
           <div className="mt-8 sm:mt-10">
             {!prod ? (
-              <div className="rounded-[24px] sm:rounded-[28px] border border-white/10 bg-[#10182B] p-8 sm:p-12 text-center">
-                <div className="mx-auto flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full border border-white/10 bg-white/[0.04]">
+              <div className="rounded-3xl sm:rounded-[28px] border border-white/10 bg-[#10182B] p-8 sm:p-12 text-center">
+                <div className="mx-auto flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full border border-white/10 bg-white/4">
                   <img
                     className="w-7 h-7 sm:w-9 sm:h-9 object-contain opacity-60"
                     src="/search.png"
@@ -97,12 +97,12 @@ function Search() {
               </div>
             ) : (
               <div className="flex justify-center">
-                <div className="w-full max-w-[380px] sm:max-w-[430px] group overflow-hidden rounded-[24px] sm:rounded-[28px] border border-white/10 bg-[#10182B] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(0,0,0,0.4)]">
+                <div className="w-full max-w-95ax-w-[430px] group overflow-hidden rounded-3xl sm:rounded-[28px] border border-white/10 bg-[#10182B] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(0,0,0,0.4)]">
                   {/* IMAGE */}
-                  <div className="relative overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_top,_rgba(96,165,250,0.10),_transparent_35%),linear-gradient(180deg,#0E1628_0%,#10182B_100%)]">
-                    <div className="pointer-events-none absolute inset-x-0 top-0 h-20 sm:h-24 bg-gradient-to-b from-white/[0.04] to-transparent" />
+                  <div className="relative overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_top,rgba(96,165,250,0.10),transparent_35%),linear-gradient(180deg,#0E1628_0%,#10182B_100%)]">
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-20 sm:h-24 bg-linear-to-brom-white/[0.04] to-transparent" />
 
-                    <div className="h-[240px] sm:h-[300px] flex items-center justify-center px-5 sm:px-8 pt-10 sm:pt-12 pb-5 sm:pb-6">
+                    <div className="h-60 sm:h-75 flex items-center justify-center px-5 sm:px-8 pt-10 sm:pt-12 pb-5 sm:pb-6">
                       <img
                         className="max-h-full max-w-full object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.35)] transition-transform duration-500 group-hover:scale-[1.05]"
                         src={"http://localhost:5000" + prod.imageurl}
@@ -118,13 +118,13 @@ function Search() {
                         {prod.name}
                       </h1>
 
-                      <p className="text-[1.2rem] sm:text-[1.55rem] font-semibold bg-gradient-to-r from-white via-sky-200 to-violet-300 bg-clip-text text-transparent">
+                      <p className="text-[1.2rem] sm:text-[1.55rem] font-semibold bg-linear-to-r from-white via-sky-200 to-violet-300 bg-clip-text text-transparent">
                         ₹ {prod.rate}
                       </p>
                     </div>
 
                     {/* QUANTITY PANEL */}
-                    <div className="mt-4 sm:mt-5 rounded-[18px] sm:rounded-[22px] border border-white/10 bg-white/[0.04] p-3 sm:p-4 backdrop-blur">
+                    <div className="mt-4 sm:mt-5 rounded-[18px] sm:rounded-[22px] border border-white/10 bg-white/4 p-3 sm:p-4 backdrop-blur">
                       <div className="space-y-2 sm:space-y-3">
                         <div>
                           <p className="text-[10px] sm:text-xs uppercase tracking-[0.22em] text-white/35">
@@ -143,7 +143,7 @@ function Search() {
 
                     {/* BUTTON */}
                     <button
-                      className="mt-4 sm:mt-5 w-full rounded-[16px] sm:rounded-[18px] bg-white px-5 py-3 sm:py-3.5 text-sm font-semibold text-[#0A0F1C] transition hover:bg-sky-100"
+                      className="mt-4 sm:mt-5 w-full rounded-2xl sm:rounded-[18px] bg-white px-5 py-3 sm:py-3.5 text-sm font-semibold text-[#0A0F1C] transition hover:bg-sky-100"
                       onClick={(e) => button(e, prod._id)}
                     >
                       Purchase

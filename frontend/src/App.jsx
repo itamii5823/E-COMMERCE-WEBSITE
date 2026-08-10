@@ -50,9 +50,9 @@ function App() {
   return (
     <div className="min-h-screen flex items-center justify-center 
     
-    bg-gradient-to-br from-[#020617] via-[#0f172a] to-[#020617] relative overflow-hidden">
+    bg-linear-to-br from-[#020617] via-[#0f172a] to-[#020617] relative overflow-hidden">
 
-      {/* 🔴 glow background */}
+      {/* glow background */}
       <div className="absolute w-96 h-96 bg-[#e23744]/30 blur-[120px] top-10 left-10"></div>
       <div className="absolute w-96 h-96 bg-pink-500/20 blur-[120px] bottom-10 right-10"></div>
 

@@ -49,7 +49,7 @@ function Cart() {
       message += `Price: ₹${item.product.rate}\n\n`;
     });
 
-    message += `💰 *Total: ₹${total}*\n\n`;
+    message += ` *Total: ₹${total}*\n\n`;
 
     const url = `https://wa.me/919166967313?text=${encodeURIComponent(
       message
@@ -66,7 +66,7 @@ function Cart() {
       </div>
 
       <div className="px-3 sm:px-5 lg:px-8 py-6 sm:py-8">
-        <div className="mx-auto max-w-[1500px]">
+        <div className="mx-auto max-w-375">
           {/* TOP SECTION */}
           <div className="mb-6 sm:mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -78,13 +78,13 @@ function Cart() {
               </h1>
             </div>
 
-            <div className="w-fit rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs sm:text-sm text-white/70 backdrop-blur">
+            <div className="w-fit rounded-full border border-white/10 bg-white/4 px-4 py-2 text-xs sm:text-sm text-white/70 backdrop-blur">
               {product.length} item{product.length !== 1 ? "s" : ""}
             </div>
           </div>
 
           {product.length === 0 ? (
-            <div className="rounded-[24px] sm:rounded-[28px] border border-white/10 bg-[#10182B] p-8 sm:p-12 text-center">
+            <div className="rounded-3xl:rounded-[28px] border border-white/10 bg-[#10182B] p-8 sm:p-12 text-center">
               <h2 className="text-lg sm:text-2xl font-semibold text-white">
                 Your cart is empty
               </h2>
@@ -94,7 +94,7 @@ function Cart() {
 
               <button
                 onClick={() => navigate("/prod")}
-                className="mt-5 rounded-[16px] bg-white px-5 py-3 text-sm font-semibold text-[#0A0F1C] transition hover:bg-sky-100"
+                className="mt-5 rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-[#0A0F1C] transition hover:bg-sky-100"
               >
                 Browse Products
               </button>
@@ -106,14 +106,14 @@ function Cart() {
                 {product.map((items, index) => (
                   <div
                     key={index}
-                    className="overflow-hidden rounded-[20px] sm:rounded-[24px] border border-white/10 bg-[#10182B] shadow-[0_14px_35px_rgba(0,0,0,0.24)]"
+                    className="overflow-hidden rounded-[20px] sm:rounded-3xl border border-white/10 bg-[#10182B] shadow-[0_14px_35px_rgba(0,0,0,0.24)]"
                   >
                     <div className="flex flex-col sm:flex-row">
                       {/* IMAGE */}
-                      <div className="relative w-full sm:w-[180px] border-b sm:border-b-0 sm:border-r border-white/10 bg-[radial-gradient(circle_at_top,_rgba(96,165,250,0.10),_transparent_35%),linear-gradient(180deg,#0E1628_0%,#10182B_100%)]">
-                        <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/[0.04] to-transparent" />
+                      <div className="relative w-full sm:w-45er-b sm:border-b-0 sm:border-r border-white/10 bg-[radial-gradient(circle_at_top,rgba(96,165,250,0.10),transparent_35%),linear-gradient(180deg,#0E1628_0%,#10182B_100%)]">
+                        <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-linear-to-b from-white/4 to-transparent" />
 
-                        <div className="h-[170px] sm:h-[170px] flex items-center justify-center px-4 py-4">
+                        <div className="h-42.5 sm:h-42.5 flex items-center justify-center px-4 py-4">
                           <img
                             className="max-h-full max-w-full object-contain drop-shadow-[0_16px_28px_rgba(0,0,0,0.32)]"
                             src={"http://localhost:5000" + items.product.imageurl}
@@ -137,14 +137,14 @@ function Cart() {
                             </div>
 
                             <div className="shrink-0">
-                              <p className="text-[1.05rem] sm:text-[1.3rem] font-semibold bg-gradient-to-r from-white via-sky-200 to-violet-300 bg-clip-text text-transparent">
+                              <p className="text-[1.05rem] sm:text-[1.3rem] font-semibold bg-linear-to-rrom-white via-sky-200 to-violet-300 bg-clip-text text-transparent">
                                 ₹ {items.product.rate}
                               </p>
                             </div>
                           </div>
 
                           {/* ACTION ROW */}
-                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 rounded-[16px] sm:rounded-[18px] border border-white/10 bg-white/[0.04] p-3 backdrop-blur">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 rounded-2xl sm:rounded-[18px] border border-white/10 bg-white/4 p-3 backdrop-blur">
                             <div>
                               <p className="text-[10px] sm:text-xs uppercase tracking-[0.22em] text-white/35">
                                 Cart Item
@@ -170,7 +170,7 @@ function Cart() {
 
               {/* RIGHT: SUMMARY */}
               <div className="xl:sticky xl:top-28">
-                <div className="rounded-[24px] sm:rounded-[28px] border border-white/10 bg-[#10182B] p-5 sm:p-6 shadow-[0_18px_50px_rgba(0,0,0,0.28)]">
+                <div className="rounded-3xl:rounded-[28px] border border-white/10 bg-[#10182B] p-5 sm:p-6 shadow-[0_18px_50px_rgba(0,0,0,0.28)]">
                   <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.28em] text-sky-300/75">
                     Order Summary
                   </p>
@@ -179,10 +179,10 @@ function Cart() {
                     Total
                   </h2>
 
-                  <div className="mt-6 rounded-[20px] border border-white/10 bg-white/[0.04] p-4 sm:p-5">
+                  <div className="mt-6 rounded-[20px] border border-white/10 bg-white/4 p-4 sm:p-5">
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-white/60">Cart value</span>
-                      <span className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-white via-sky-200 to-violet-300 bg-clip-text text-transparent">
+                      <span className="text-3xl sm:text-4xl font-extrabold bg-linear-to-r from-white via-sky-200 to-violet-300 bg-clip-text text-transparent">
                         ₹ {total}
                       </span>
                     </div>

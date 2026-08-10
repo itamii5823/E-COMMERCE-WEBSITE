@@ -61,7 +61,7 @@ function Admin() {
       </div>
 
       <div className="px-3 sm:px-5 lg:px-8 py-6 sm:py-8">
-        <div className="mx-auto max-w-[1500px]">
+        <div className="mx-auto max-w-375">
           {/* TOP SECTION */}
           <div className="mb-6 sm:mb-8">
             <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.28em] text-sky-300/75">
@@ -76,7 +76,7 @@ function Admin() {
           {/* MAIN LAYOUT */}
           <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_380px] gap-6 xl:gap-8 items-start">
             {/* FORM CARD */}
-            <div className="rounded-[24px] sm:rounded-[28px] p-4 sm:p-6 lg:p-7 border border-white/10 bg-[#10182B] shadow-[0_18px_50px_rgba(0,0,0,0.28)]">
+            <div className="rounded-3xl:rounded-[28px] p-4 sm:p-6 lg:p-7 border border-white/10 bg-[#10182B] shadow-[0_18px_50px_rgba(0,0,0,0.28)]">
               <div className="mb-6">
                 <h2 className="text-xl sm:text-2xl font-semibold tracking-[-0.02em] text-white">
                   Product Details
@@ -200,7 +200,7 @@ function Admin() {
             </div>
 
             {/* SIDE PREVIEW PANEL */}
-            <div className="rounded-[24px] sm:rounded-[28px] p-5 sm:p-6 border border-white/10 bg-[#10182B] shadow-[0_18px_50px_rgba(0,0,0,0.28)] xl:sticky xl:top-28">
+            <div className="rounded-3xl sm:rounded-[28px] p-5 sm:p-6 border border-white/10 bg-[#10182B] shadow-[0_18px_50px_rgba(0,0,0,0.28)] xl:sticky xl:top-28">
               <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.28em] text-sky-300/75">
                 Preview
               </p>
@@ -209,9 +209,9 @@ function Admin() {
                 Product Summary
               </h2>
 
-              <div className="mt-6 rounded-[24px] overflow-hidden border border-white/10 bg-[#0C1324]">
+              <div className="mt-6 rounded-3xl overflow-hidden border border-white/10 bg-[#0C1324]">
                 {/* IMAGE PREVIEW */}
-                <div className="h-[240px] flex items-center justify-center bg-[radial-gradient(circle_at_top,_rgba(96,165,250,0.10),_transparent_35%),linear-gradient(180deg,#0E1628_0%,#10182B_100%)]">
+                <div className="h-60 flex items-center justify-center bg-[radial-gradient(circle_at_top,rgba(96,165,250,0.10),transparent_35%),linear-gradient(180deg,#0E1628_0%,#10182B_100%)]">
                   {product.image ? (
                     <img
                       src={URL.createObjectURL(product.image)}
@@ -235,7 +235,7 @@ function Admin() {
                   </p>
 
                   <div className="mt-4 flex items-center justify-between">
-                    <p className="text-2xl font-bold bg-gradient-to-r from-white via-sky-200 to-violet-300 bg-clip-text text-transparent">
+                    <p className="text-2xl font-bold bg-linear-to-r from-white via-sky-200 to-violet-300 bg-clip-text text-transparent">
                       ₹ {product.price || "0"}
                     </p>
 

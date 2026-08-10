@@ -1,7 +1,7 @@
 const mongosse = require("mongoose");
 
 
-mongosse.connect("mongodb://localhost:27017/user");
+mongosse.connect(process.env.MONGO_URL);
 
 const userSchema = mongosse.Schema({
     username: String,
