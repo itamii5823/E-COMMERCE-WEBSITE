@@ -13,7 +13,7 @@ const cart = require('./database/cart');
 
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://e-commerce-website-fawn-two.vercel.app",
     credentials:true,
 }));
 app.use(express.json());
