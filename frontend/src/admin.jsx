@@ -30,7 +30,7 @@ function Admin() {
     formData.append("image", product.image);
     formData.append("color", product.color);
 
-    await axios.post("http://localhost:5000/addprod", formData, {
+    await axios.post("https://e-commerce-website-wlee.onrender.com/addprod", formData, {
       withCredentials: true,
     });
   }
