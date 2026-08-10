@@ -42,7 +42,7 @@ Admin functionality includes:
 - Manage product information
 - Administrative access separated from normal users
 
-## 🔐 Admin Demo Access
+##  Admin Demo Access
 
 The project includes a protected admin dashboard with product management functionality.
 
