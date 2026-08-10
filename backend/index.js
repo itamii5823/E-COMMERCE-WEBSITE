@@ -13,7 +13,7 @@ const cart = require('./database/cart');
 
 
 app.use(cors({
-    origin: "https://e-commerce-website-fawn-two.vercel.app",
+    origin: "https://e-commerce-website-fawn-two.vercel.app/",
     credentials:true,
 }));
 app.use(express.json());
@@ -53,7 +53,11 @@ app.post("/login",async(req,res)=>{
         if(user.password==password){
          console.log("verified");
          const token = jwt.sign({"email":email,"username":username},secret)
-         res.cookie("user",token);
+         res.cookie("user", token, {
+         httpOnly: true,
+       secure: true,
+         sameSite: "none"
+      });
          res.send("done")
         }
         else {
@@ -78,7 +82,11 @@ app.post("/signup",async (req,res)=>{
     await user.save();
     console.log(user);
     const token = jwt.sign({"email":email,"username":username,"password":password},secret,{expiresIn:'1d'})
-    res.cookie("user",token)
+    res.cookie("user", token, {
+     httpOnly: true,
+     secure: true,
+    sameSite: "none"
+     });
      console.log("signup")
     res.send("received");
 });
