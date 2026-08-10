@@ -39,7 +39,7 @@ function Admin() {
     async function isadmin() {
       try {
         const res = await axios.post(
-          "http://localhost:5000/isadmin",
+          "https://e-commerce-website-wlee.onrender.com/isadmin",
           "heyy",
           { withCredentials: true }
         );

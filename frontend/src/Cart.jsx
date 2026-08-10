@@ -11,7 +11,7 @@ function Cart() {
   useEffect(() => {
     async function getdata() {
       const res = await axios.post(
-        "http://localhost:5000/cart",
+        "https://e-commerce-website-wlee.onrender.com/cart",
         "hii",
         { withCredentials: true }
       );
@@ -25,7 +25,7 @@ function Cart() {
   async function removeproduct(e, product) {
     e.preventDefault();
     await axios.post(
-      "http://localhost:5000/addtocartr",
+      "https://e-commerce-website-wlee.onrender.com/addtocartr",
       { product },
       { withCredentials: true }
     );
@@ -33,7 +33,7 @@ function Cart() {
 
   async function checkout() {
     const res = await axios.post(
-      "http://localhost:5000/checkout",
+      "https://e-commerce-website-wlee.onrender.com/checkout",
       {},
       { withCredentials: true }
     );

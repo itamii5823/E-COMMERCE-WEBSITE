@@ -22,7 +22,7 @@ function Products() {
 
   useEffect(() => {
     const getdata = async () => {
-      const data = await axios.get("http://localhost:5000/getdata");
+      const data = await axios.get("https://e-commerce-website-wlee.onrender.com/getdata");
       setproduct(data.data);
     };
     getdata();
@@ -33,7 +33,7 @@ function Products() {
     setnumber(number + 1);
 
     await axios.post(
-      "http://localhost:5000/addtocart",
+      "https://e-commerce-website-wlee.onrender.com//addtocart",
       {
         prodid,
         quantity,
@@ -127,7 +127,7 @@ function Products() {
                     <div className="h-37.5 sm:h-70 lg:h-75 flex items-center justify-center px-3 sm:px-8 pt-10 sm:pt-14 pb-4 sm:pb-6">
                       <img
                         className="max-h-full max-w-full object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.35)] transition-transform duration-500 group-hover:scale-[1.05]"
-                        src={"http://localhost:5000" + items.imageurl}
+                        src={"https://e-commerce-website-wlee.onrender.com" + items.imageurl}
                         alt={items.name}
                       />
                     </div>

@@ -20,7 +20,7 @@ function Search() {
   async function button(e, prodid) {
     e.preventDefault();
     await axios.post(
-      "http://localhost:5000/addtosearch",
+      "https://e-commerce-website-wlee.onrender.com/addtosearch",
       { prod, quant },
       { withCredentials: true }
     );
@@ -105,7 +105,7 @@ function Search() {
                     <div className="h-60 sm:h-75 flex items-center justify-center px-5 sm:px-8 pt-10 sm:pt-12 pb-5 sm:pb-6">
                       <img
                         className="max-h-full max-w-full object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.35)] transition-transform duration-500 group-hover:scale-[1.05]"
-                        src={"http://localhost:5000" + prod.imageurl}
+                        src={"https://e-commerce-website-wlee.onrender.com" + prod.imageurl}
                         alt={prod.name}
                       />
                     </div>

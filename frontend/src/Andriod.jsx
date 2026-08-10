@@ -27,7 +27,7 @@ function Andriod() {
 
    async function signup(e) {
     e.preventDefault();
-    const res = await axios.post("http://localhost:5000/signup",newuser,{withCredentials:true})
+    const res = await axios.post("https://e-commerce-website-wlee.onrender.com/signup",newuser,{withCredentials:true})
     console.log(res.data);
     if(res.data==="received"){  
        navigate("/prod");
@@ -44,7 +44,7 @@ function Andriod() {
     e.preventDefault();
     
       console.log('Attempting login...', userinfo);
-      const res = await axios.post("http://localhost:5000/login", userinfo, { withCredentials: true });
+      const res = await axios.post("https://e-commerce-website-wlee.onrender.com/login", userinfo, { withCredentials: true });
       console.log('Login response:', res.data);
       if (res.data === "done") {
        console.log('Login successful, navigating to /prod');

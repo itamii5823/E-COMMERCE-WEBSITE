@@ -25,7 +25,7 @@ function App() {
 
    async function signup(e) {
     e.preventDefault();
-    const res = await axios.post("http://localhost:5000/signup",newuser,{withCredentials:true})
+    const res = await axios.post("https://e-commerce-website-wlee.onrender.com/signup",newuser,{withCredentials:true})
     if(res.data==="received"){  
        navigate("/prod");
     } else {
@@ -35,7 +35,7 @@ function App() {
 
    async function submit (e){
     e.preventDefault();
-    const res = await axios.post("http://localhost:5000/login", userinfo, { withCredentials: true });
+    const res = await axios.post("https://e-commerce-website-wlee.onrender.com/login", userinfo, { withCredentials: true });
     if (res.data === "done") {
         navigate("/prod");
     } else {
